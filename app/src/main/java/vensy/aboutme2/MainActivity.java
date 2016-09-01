@@ -1,6 +1,7 @@
 package vensy.aboutme2;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -54,13 +55,21 @@ public class MainActivity extends AppCompatActivity {
         skills.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                if (item.getItemId() == R.id.skills) {
-                    Intent intent = new Intent(getApplicationContext(), SkillsActivity.class);
-                    startActivity(intent);
-                }
-                if (item.getItemId() == R.id.info) {
-                    Intent intent = new Intent(getApplicationContext(), InfoActivity.class);
-                    startActivity(intent);
+                switch (item.getItemId()) {
+                    case R.id.skills:
+                        Intent intent = new Intent(getApplicationContext(), SkillsActivity.class);
+                        startActivity(intent);
+                        break;
+
+                    case R.id.info:
+                        intent = new Intent(getApplicationContext(), InfoActivity.class);
+                        startActivity(intent);
+                        break;
+
+                    case R.id.linkedin:
+                        intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://ru.linkedin.com/in/vensy91"));
+                        startActivity(intent);
+                        break;
                 }
                 return false;
             }

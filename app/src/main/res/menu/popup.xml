@@ -8,4 +8,8 @@
         android:id="@+id/skills"
         android:title="Show Skills"/>
 
+    <item
+        android:id="@+id/linkedin"
+        android:title="Show LinkedIn profile"/>
+
 </menu>
